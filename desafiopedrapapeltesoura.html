@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jogo Pedra, Papel e Tesoura</title>
+
+    <style>
+        body {
+
+            font-family: Arial, sans-serif;
+
+            text-align: center;
+
+            margin-top: 50px;
+
+        }
+
+        button {
+
+            padding: 10px 20px;
+
+            font-size: 16px;
+
+            margin: 10px;
+
+            cursor: pointer;
+
+        }
+
+        #resultado {
+
+            margin-top: 20px;
+
+            font-size: 20px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Jogo Pedra, Papel e Tesoura</h1>
+
+    <button onclick="jogar('pedra')">Pedra</button>
+
+    <button onclick="jogar('papel')">Papel</button>
+
+    <button onclick="jogar('tesoura')">Tesoura</button>
+
+
+
+    <div id="resultado"></div>
+
+
+
+    <script>
+       function jogar(escolhaUsuario) {
+    const opcoes = ["pedra", "papel", "tesoura"];
+    const escolhaComputador = opcoes[Math.floor(Math.random() * 3)];
+
+    document.getElementById("resultado").innerHTML = `Você escolheu: ${escolhaUsuario}<br>
+    O computador escolheu: ${escolhaComputador}<br>`;
+
+    if (escolhaUsuario === escolhaComputador) {
+        document.getElementById('resultado').innerHTML += "Empate!";
+    } else if (
+        (escolhaUsuario === 'pedra' && escolhaComputador === 'tesoura') ||
+        (escolhaUsuario === 'papel' && escolhaComputador === 'pedra') ||
+        (escolhaUsuario === 'tesoura' && escolhaComputador === 'papel')
+    ) {
+        document.getElementById('resultado').innerHTML += "Você Ganhou!";
+    } else {
+        document.getElementById('resultado').innerHTML += "Você Perdeu!";
+    }
+}
+
+
+
+
+    </script>
+
+</body>
+
+</html>
